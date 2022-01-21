@@ -21,15 +21,30 @@
 
         #ivs_bars_container { position: absolute; display: flex; visibility: hidden; transform-origin: 50% 50% 0px; height: 4.54%; width: 96%; top: 1.55%; left: 2%; background-image: none; background-color: transparent; }
         #ivs_bar_0 { height: 5px; width: 25%; background-color: rgba(255, 255, 255, 0.5); border-radius: 5px; visibility: hidden; }
-        #ivs_progress_bar_0 { width: 100%; height: 100%; background-color: white;}
-        #ivs_bar_1 { height: 5px; width: 25%; background-color: rgba(255, 255, 255, 0.5); border-radius: 5px; visibility: hidden; }
-        #ivs_bar_2 { height: 5px; width: 25%; background-color: rgba(255, 255, 255, 0.5); border-radius: 5px; visibility: hidden; }
-        #ivs_bar_3 { height: 5px; width: 25%; background-color: rgba(255, 255, 255, 0.5); border-radius: 5px; visibility: hidden; }
+        #ivs_progress_bar_0 { width: 0%; height: 100%; background-color: white; }
 
-        #ivs_product_1 { background-image: url('images/shoes1.jpg'); background-position: center center; background-size: cover; position: absolute; height: 100%; width: 100%; object-fit: cover; left: 0%; top: 0%; visibility: hidden;}
-        #ivs_product_2 { background-image: url('images/shoes2.jpeg'); background-position: center center; background-size: cover; position: absolute; height: 100%; width: 100%; object-fit: cover; left: 0%; top: 0%; visibility: hidden;}
-        #ivs_product_3 { background-image: url('images/shoes3.jpg'); background-position: center center; background-size: cover; position: absolute; height: 100%; width: 100%; object-fit: cover; left: 0%; top: 0%; visibility: hidden;}
-        #ivs_product_4 { background-image: url('images/shoes4.jpg'); background-position: center center; background-size: cover; position: absolute; height: 100%; width: 100%; object-fit: cover; left: 0%; top: 0%; visibility: hidden;}
+        .animation_class { animation-duration: 5s; animation-name: slidein; }
+
+        @keyframes slidein {
+          from {
+            width: 0%;
+          }
+
+          to {
+            width: 100%;
+          }
+        }
+        #ivs_bar_1 { height: 5px; width: 25%; background-color: rgba(255, 255, 255, 0.5); border-radius: 5px; visibility: hidden; }
+        #ivs_progress_bar_1 { width: 0%; height: 100%; background-color: white;}
+        #ivs_bar_2 { height: 5px; width: 25%; background-color: rgba(255, 255, 255, 0.5); border-radius: 5px; visibility: hidden; }
+        #ivs_progress_bar_2 { width: 0%; height: 100%; background-color: white;}
+        #ivs_bar_3 { height: 5px; width: 25%; background-color: rgba(255, 255, 255, 0.5); border-radius: 5px; visibility: hidden; }
+        #ivs_progress_bar_3 { width: 0%; height: 100%; background-color: white;}
+
+        #ivs_product_0 { background-image: url('images/shoes1.jpg'); background-position: center center; background-size: cover; position: absolute; height: 100%; width: 100%; object-fit: cover; left: 0%; top: 0%; visibility: hidden;}
+        #ivs_product_1 { background-image: url('images/shoes2.jpeg'); background-position: center center; background-size: cover; position: absolute; height: 100%; width: 100%; object-fit: cover; left: 0%; top: 0%; visibility: hidden;}
+        #ivs_product_2 { background-image: url('images/shoes3.jpg'); background-position: center center; background-size: cover; position: absolute; height: 100%; width: 100%; object-fit: cover; left: 0%; top: 0%; visibility: hidden;}
+        #ivs_product_3 { background-image: url('images/shoes4.jpg'); background-position: center center; background-size: cover; position: absolute; height: 100%; width: 100%; object-fit: cover; left: 0%; top: 0%; visibility: hidden;}
         
     </style>
   <title>iVS</title>
@@ -50,10 +65,10 @@
     </div>
 
     <div class='ivs_products'>
+      <svg id='ivs_product_0'></svg>
       <svg id='ivs_product_1'></svg>
       <svg id='ivs_product_2'></svg>
       <svg id='ivs_product_3'></svg>
-      <svg id='ivs_product_4'></svg>
     </div>
 
     <div id='ivs_bars_container'>
@@ -99,10 +114,13 @@
 
     document.getElementById('ivs_clickables').addEventListener('click', function() {
       var barContainer = document.getElementById('ivs_bars_container');
-      var productOne = document.getElementById('ivs_product_1');
-      productOne.style.visibility = 'visible';
-      for (let i = 0; i < barContainer.querySelectorAll('div').length; i++) {
-        barContainer.querySelectorAll('div')[i].style.visibility = 'visible';
+      for (let i = 0; i < (barContainer.querySelectorAll('div').length)/2; i++) {
+        document.getElementById(`ivs_bar_${i}`).style.visibility = 'visible';
+        setTimeout(function() {
+          document.getElementById(`ivs_product_${i}`).style.visibility = 'visible';
+          document.getElementById(`ivs_progress_bar_${i}`).classList.add('animation_class'); 
+          document.getElementById(`ivs_progress_bar_${i}`).style.width = '100%';
+        }, i*5000);
       }
     });
     
