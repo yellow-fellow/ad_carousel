@@ -7,7 +7,7 @@
         body { position:absolute; top:0%; left:0%; width:100%; height:100%; font-family:sans-serif; padding:0px; margin:0px; background-color: white; }
         
         /* Hide overflowing body elements */
-        #ivs_outer { overflow:none; margin: 0 auto;}
+        #ivs_outer { overflow: none; margin: 0 auto;}
 
         /* Stretch video frame to the same size as the HTML body */
         .ivs_video_frame { width:100%; height:100%; margin: 0 auto;}
@@ -21,7 +21,7 @@
         #ivs_words_explore { font-size: 23px; position: absolute; font-family: 'Poppins'; background-image: none; color: white; background-color: transparent; font-weight: 600; left: -0.87%; top: 64.68%; width: 51.09%; height: 26.87%; text-align: right; }
         #ivs_carousel_button_background { background-position: center; background-size: cover; position: absolute; box-sizing: border-box; border-width: 1px; border-style: solid; border-color: transparent; background-clip: content-box; background-color: rgba(255, 255, 255, 0.61); border-radius: 100%; width: 43.69%; height: 100.01%; left: 56%; top: 0%;}
         #ivs_carousel_button { background-image: url('images/shoes5.png'); background-position: center center; background-size: cover; position: absolute; transform-origin: 50% 50% 0px; width: 38.02%; height: 87.06%; left: 59.13%; top: 6.47%; border-radius: 100%; }
-        #ivs_cross_button { transform-origin: 50% 50% 0px; position: absolute; top: 0%; left: 96.65%; width: 30px; height: 30px; background-color: rgba(255, 255, 255, 0.61); -webkit-mask: url(images/cross.svg) no-repeat center; mask: url(images/cross.svg) no-repeat center; cursor: pointer; }         
+        #ivs_cross_button { transform-origin: 50% 50% 0px; position: absolute; top: -20%; left: 96.65%; width: 50px; height: 50px; background-color: grey; -webkit-mask: url(images/cross.svg) no-repeat center; mask: url(images/cross.svg) no-repeat center; cursor: pointer; }         
 
         .animation_class { animation-duration: 5s; animation-name: slidein; }
 
@@ -48,7 +48,7 @@
         .slide {
             -webkit-animation: slide 0.5s forwards;
             -webkit-animation-delay: 0s;
-            animation: slide 0.5s forwards;
+            animation: slide 1s forwards;
             animation-delay: 0s;
         }
 
@@ -59,11 +59,12 @@
         @keyframes slide {
           100% { left: 0; }
         }
-
-        #ivs_product_0 { background-image: url('images/shoes1.jpg'); background-position: center center; background-size: cover; position: absolute; height: 100%; width: 100%; object-fit: cover; left: 0%; top: 0%; visibility: hidden;}
-        #ivs_product_1 { background-image: url('images/shoes2.jpeg'); background-position: center center; background-size: cover; position: absolute; height: 100%; width: 100%; object-fit: cover; left: 100%; top: 0%; visibility: hidden;}
-        #ivs_product_2 { background-image: url('images/shoes3.jpg'); background-position: center center; background-size: cover; position: absolute; height: 100%; width: 100%; object-fit: cover; left: 100%; top: 0%; visibility: hidden;}
-        #ivs_product_3 { background-image: url('images/shoes4.jpg'); background-position: center center; background-size: cover; position: absolute; height: 100%; width: 100%; object-fit: cover; left: 100%; top: 0%; visibility: hidden;}
+        
+        .ivs_products { display: block; position: absolute; height: 100%; width: 100%;}
+        #ivs_product_0 { background-image: url('images/shoes1.jpg'); background-position: center center; background-size: cover; position: absolute; height: 100%; width: 100%; object-fit: cover; left: 0%; top: -100%; visibility: hidden;}
+        #ivs_product_1 { background-image: url('images/shoes2.jpeg'); background-position: center center; background-size: cover; position: absolute; height: 100%; width: 100%; object-fit: cover; left: 100%; top: -100%; visibility: hidden;}
+        #ivs_product_2 { background-image: url('images/shoes3.jpg'); background-position: center center; background-size: cover; position: absolute; height: 100%; width: 100%; object-fit: cover; left: 100%; top: -100%; visibility: hidden;}
+        #ivs_product_3 { background-image: url('images/shoes4.jpg'); background-position: center center; background-size: cover; position: absolute; height: 100%; width: 100%; object-fit: cover; left: 100%; top: -100%; visibility: hidden;}
         
     </style>
   <title>iVS</title>
