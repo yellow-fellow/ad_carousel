@@ -4,10 +4,10 @@
   <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <style>
         /* Stretch out HTML body to take up maximum 16:9 aspect ratio */
-        body { position:absolute; top:0%; left:0%; width:100%; height:100%; font-family:sans-serif; padding:0px; margin:0px; background-color: white; }
+        body { position:absolute; top:0%; left:0%; width:100%; height:100%; font-family:sans-serif; padding:0px; margin:0px; background-color: white; overflow: hidden;}
         
         /* Hide overflowing body elements */
-        #ivs_outer { overflow: none; margin: 0 auto;}
+        #ivs_outer { overflow: hidden; margin: 0 auto; } 
 
         /* Stretch video frame to the same size as the HTML body */
         .ivs_video_frame { width:100%; height:100%; margin: 0 auto;}
@@ -53,11 +53,11 @@
         }
 
         @-webkit-keyframes slide {
-            100% { left: 0; }
+            100% { left: 0%; }
         }
 
         @keyframes slide {
-          100% { left: 0; }
+          100% { left: 0%; }
         }
         
         .ivs_products { display: block; position: absolute; height: 100%; width: 100%;}
@@ -65,7 +65,8 @@
         #ivs_product_1 { background-image: url('images/shoes2.jpeg'); background-position: center center; background-size: cover; position: absolute; height: 100%; width: 100%; object-fit: cover; left: 100%; top: -100%; visibility: hidden;}
         #ivs_product_2 { background-image: url('images/shoes3.jpg'); background-position: center center; background-size: cover; position: absolute; height: 100%; width: 100%; object-fit: cover; left: 100%; top: -100%; visibility: hidden;}
         #ivs_product_3 { background-image: url('images/shoes4.jpg'); background-position: center center; background-size: cover; position: absolute; height: 100%; width: 100%; object-fit: cover; left: 100%; top: -100%; visibility: hidden;}
-        
+        #ivs_product_cross { transform-origin: 50% 50% 0px; position: absolute; top: -98%; left: 95%; width: 50px; height: 50px; background-color: grey; -webkit-mask: url(images/cross.svg) no-repeat center; mask: url(images/cross.svg) no-repeat center; cursor: pointer; visibility: hidden; }
+
     </style>
   <title>iVS</title>
 </head>
@@ -87,11 +88,13 @@
       <svg id='ivs_carousel_button'></svg>
     </div>
 
+
     <div class='ivs_products'>
       <svg id='ivs_product_0'></svg>
       <svg id='ivs_product_1'></svg>
       <svg id='ivs_product_2'></svg>
       <svg id='ivs_product_3'></svg>
+      <button id='ivs_product_cross'></button>
     </div>
 
     <div id='ivs_bars_container'>
@@ -135,28 +138,45 @@
       document.querySelector("body").style.fontSize = min_dimension + "px";
     }
 
+
+    var barContainer = document.getElementById('ivs_bars_container');
+    var max = (barContainer.querySelectorAll('div').length)/2;
+    var recurse;
+
+    function myRecursive(i, timeOut){
+      recurse = setTimeout(function(){
+        document.getElementById(`ivs_product_${i}`).style.visibility = 'visible';
+        document.getElementById(`ivs_product_${i}`).classList.add('slide');
+        document.getElementById(`ivs_progress_bar_${i}`).classList.add('animation_class');
+        document.getElementById(`ivs_progress_bar_${i}`).style.width = '100%';
+        if (++i < max) { myRecursive(i, 5000); }
+      }, timeOut)
+      return 0;
+    }
+
     document.getElementById('ivs_clickables').addEventListener('click', function() {
-      var barContainer = document.getElementById('ivs_bars_container');
-      var max = (barContainer.querySelectorAll('div').length)/2;
-      console.log(max);
+      document.getElementById('ivs_product_cross').style.visibility = 'visible';
       for (let i = 0; i < max; i++) {
         document.getElementById(`ivs_bar_${i}`).style.visibility = 'visible';
       }
-      function myRecursive(i, timeOut){
-        setTimeout(function(){
-          document.getElementById(`ivs_product_${i}`).style.visibility = 'visible';
-          document.getElementById(`ivs_product_${i}`).classList.add('slide');
-          document.getElementById(`ivs_progress_bar_${i}`).classList.add('animation_class');
-          document.getElementById(`ivs_progress_bar_${i}`).style.width = '100%';
-          if (++i < max) { myRecursive(i, 5000); }
-        }, timeOut)
-        return 0;
-      }
-      myRecursive(0, 0);
+      recurse = myRecursive(0, 0);
     });
 
     document.getElementById('ivs_cross_button').addEventListener('click', function() {
       document.getElementById('ivs_clickables').style.visibility = 'hidden';
+      event.stopPropagation();
+    })
+
+    document.getElementById('ivs_product_cross').addEventListener('click', function() {
+      clearTimeout(recurse);
+      document.getElementById('ivs_product_cross').style.visibility = 'hidden';
+      for (let i = 0; i < max; i++) {
+        document.getElementById(`ivs_bar_${i}`).style.visibility = 'hidden';
+        document.getElementById(`ivs_product_${i}`).style.visibility = 'hidden';
+        document.getElementById(`ivs_product_${i}`).classList.remove('slide');
+        document.getElementById(`ivs_progress_bar_${i}`).classList.remove('animation_class');
+        document.getElementById(`ivs_progress_bar_${i}`).style.width = '0%';
+      }
       event.stopPropagation();
     })
     
