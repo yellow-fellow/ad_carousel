@@ -68,6 +68,7 @@
         #ivs_product_cross { transform-origin: 50% 50% 0px; position: absolute; top: -98%; left: 95%; width: 50px; height: 50px; background-color: grey; -webkit-mask: url(images/cross.svg) no-repeat center; mask: url(images/cross.svg) no-repeat center; cursor: pointer; visibility: hidden; }
         #ivs_product_before { transform-origin: 50% 50% 0px; position: absolute; top: -50%; left: 2%; width: 50px; height: 50px; background-color: black; -webkit-mask: url(images/before_arrow.svg) no-repeat center; mask: url(images/cross.svg) no-repeat center; cursor: pointer; visibility: hidden; }
         #ivs_product_next { transform-origin: 50% 50% 0px; position: absolute; top: -50%; left: 95%; width: 50px; height: 50px; background-color: black; -webkit-mask: url(images/next_arrow.svg) no-repeat center; mask: url(images/cross.svg) no-repeat center; cursor: pointer; visibility: hidden; }
+        #ivs_product_explore { transform-origin: 50% 50% 0px; position: absolute; top: -10%; left: 80%; cursor: pointer; visibility: hidden; font-family: 'Poppins'; width: 17%; height: 5%; border-style: solid; border-color: white; border-width: 2px; text-align: center; display: inline-block; border-radius: 40px; background-color: black; color: white; font-size: 25px; }
 
     </style>
   <title>iVS</title>
@@ -99,6 +100,7 @@
       <button id='ivs_product_cross'></button>
       <button id='ivs_product_before'></button>
       <button id='ivs_product_next'></button>
+      <button id='ivs_product_explore'>EXPLORE NOW</button>
     </div>
 
     <div id='ivs_bars_container'>
@@ -164,6 +166,7 @@
       document.getElementById('ivs_product_cross').style.visibility = 'visible';
       document.getElementById('ivs_product_before').style.visibility = 'visible';
       document.getElementById('ivs_product_next').style.visibility = 'visible';
+      document.getElementById('ivs_product_explore').style.visibility = 'visible';
       for (let i = 0; i < max; i++) {
         document.getElementById(`ivs_bar_${i}`).style.visibility = 'visible';
       }
@@ -181,6 +184,7 @@
       document.getElementById('ivs_product_cross').style.visibility = 'hidden';
       document.getElementById('ivs_product_before').style.visibility = 'hidden';
       document.getElementById('ivs_product_next').style.visibility = 'hidden';
+      document.getElementById('ivs_product_explore').style.visibility = 'hidden';
       for (let i = 0; i < max; i++) {
         document.getElementById(`ivs_bar_${i}`).style.visibility = 'hidden';
         document.getElementById(`ivs_product_${i}`).style.visibility = 'hidden';
