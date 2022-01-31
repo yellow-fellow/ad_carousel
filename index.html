@@ -7,21 +7,21 @@
         body { position:absolute; top:0%; left:0%; width:100%; height:100%; font-family:sans-serif; padding:0px; margin:0px; background-color: white; overflow: hidden;}
         
         /* Hide overflowing body elements */
-        #ivs-outer { overflow: hidden; margin: 0 auto; } 
+        #ivs-outer { overflow: hidden; width: 100%; height: 100%; margin: 0 auto; } 
 
         /* Stretch video frame to the same size as the HTML body */
         .ivs-video-frame { width:100%; height:100%; margin: 0 auto;}
 
         #ivs-video { position: relative; height:100%; width: 100%; }
 
-        #ivs-clickables { display: block; position: absolute; transform-origin: 50% 50% 0px; height: 18.61%; width: 23.96%; left: 73.23%; top: 71.3%; }
+        #ivs-clickables { height:100%; width:100%; position: relative; top:-100%; left:0%; visibility: hidden;}
         #ivs-clickables:hover { cursor: pointer; }
         p { display: block; margin-block-start: 1em; margin-block-end: 1em; margin-inline-start: 0px; margin-inline-end: 0px; margin: 0px;}
-        #ivs-words-adidas { font-size: 2em; position: absolute; font-family: Verdana, Helvetica, sans-serif; font-weight: 300; color: white; text-align: right; transform-origin: 50% 50% 0px; left: -0.87%; top: 12.94%; width: 51.09%; height: 51.75%; }
-        #ivs-words-explore { font-size: 1.6em; position: absolute; font-family: Verdana, Helvetica, sans-serif; background-image: none; color: white; background-color: transparent; font-weight: 600; left: -0.87%; top: 64.68%; width: 51.09%; height: 26.87%; text-align: right; }
-        #ivs-carousel-button-background { background-position: center; background-size: cover; position: absolute; box-sizing: border-box; border-width: 1px; border-style: solid; border-color: transparent; background-clip: content-box; background-color: rgba(255, 255, 255, 0.61); border-radius: 100%; width: 43.69%; height: 100.01%; left: 56%; top: 0%;}
-        #ivs-carousel-button { background-image: url('images/shoes5.png'); background-position: center center; background-size: cover; position: absolute; transform-origin: 50% 50% 0px; width: 38.02%; height: 87.06%; left: 59.13%; top: 6.47%; border-radius: 100%; }
-        #ivs-cross-button { transform-origin: 50% 50% 0px; position: absolute; top: -20%; left: 96.65%; width: 50px; height: 50px; background-color: grey; -webkit-mask: url(images/cross.svg) no-repeat center; mask: url(images/cross.svg) no-repeat center; cursor: pointer; }         
+        #ivs-words-adidas { display: block; font-size: 2em; position: absolute; font-family: Verdana, Helvetica, sans-serif; color: white; transform-origin: 50% 50% 0px; width: 10%; height: 5%; left: 71%; top: 75%; text-align: right; visibility: visible;}
+        #ivs-words-explore { display: block; font-size: 1.6em; position: absolute; font-family: Verdana, Helvetica, sans-serif; color: white; background-color: transparent; font-weight: 600; left: 66%; top: 85%; width: 15%; height: 5%; text-align: right; visibility: visible;}
+        #ivs-carousel-button-background { position: absolute; background-color: rgba(255, 255, 255, 0.61); border-radius: 100%; width: 12%; height: 18%; left: 82%; top: 73.5%; transform-origin: 50% 50% 0px; visibility: visible;}
+        #ivs-carousel-button { background-image: url('images/shoes5.png'); background-position: center center; background-size: cover; position: absolute; transform-origin: 50% 50% 0px; width: 10%; height: 15%; left: 83%; top: 75%; border-radius: 100%; visibility: visible;}
+        #ivs-cross-button { display: block; position: absolute; width: 5%; height: 5%; top: 71%; left: 92%; background: transparent no-repeat center; background-size: 50%; border-radius: 5%/17.8%; border-color: transparent; background-image: url(images/cross.svg); cursor: pointer; visibility: visible;}         
 
         .animation-class { animation-duration: 5s; animation-name: slidein; }
 
@@ -60,17 +60,18 @@
           100% { left: 0%; }
         }
         
-        .ivs-products { display: block; position: absolute; height: 100%; width: 100%;}
-        #ivs-product-0 { background-image: url('images/shoes1.jpg'); background-position: center center; background-size: cover; position: absolute; height: 100%; width: 100%; object-fit: cover; left: 0%; top: -100%; visibility: hidden;}
-        #ivs-product-1 { background-image: url('images/shoes2.jpeg'); background-position: center center; background-size: cover; position: absolute; height: 100%; width: 100%; object-fit: cover; left: 100%; top: -100%; visibility: hidden;}
-        #ivs-product-2 { background-image: url('images/shoes3.jpg'); background-position: center center; background-size: cover; position: absolute; height: 100%; width: 100%; object-fit: cover; left: 100%; top: -100%; visibility: hidden;}
-        #ivs-product-3 { background-image: url('images/shoes4.jpg'); background-position: center center; background-size: cover; position: absolute; height: 100%; width: 100%; object-fit: cover; left: 100%; top: -100%; visibility: hidden;}
-        #ivs-product-cross { transform-origin: 50% 50% 0px; position: absolute; top: -98%; left: 95%; width: 50px; height: 50px; background-color: grey; -webkit-mask: url(images/cross.svg) no-repeat center; mask: url(images/cross.svg) no-repeat center; cursor: pointer; visibility: hidden; }
-        #ivs-product-before { transform-origin: 50% 50% 0px; position: absolute; top: -50%; left: 2%; width: 50px; height: 50px; background-color: black; -webkit-mask: url(images/before_arrow.svg) no-repeat center; mask: url(images/cross.svg) no-repeat center; cursor: pointer; visibility: hidden; }
-        #ivs-product-next { transform-origin: 50% 50% 0px; position: absolute; top: -50%; left: 95%; width: 50px; height: 50px; background-color: black; -webkit-mask: url(images/next_arrow.svg) no-repeat center; mask: url(images/cross.svg) no-repeat center; cursor: pointer; visibility: hidden; }
-        #ivs-product-explore { transform-origin: 50% 50% 0px; position: absolute; top: -10%; left: 80%; cursor: pointer; visibility: hidden; font-family: Verdana, Helvetica, sans-serif; width: 17%; height: 5%; border-style: solid; border-color: white; border-width: 2px; text-align: center; display: inline-block; border-radius: 40px; background-color: black; color: white; font-size: 2em; }
+        .ivs-products { display: block; position: relative; height: 100%; width: 100%; top: -200%; left: 0%; visibility: hidden;}
+        #ivs-product-0 { background-image: url('images/shoes1.jpg'); background-position: center center; background-size: cover; position: absolute; height: 100%; width: 100%; object-fit: cover; left: 0%; top: 0%; visibility: hidden;}
+        #ivs-product-1 { background-image: url('images/shoes2.jpeg'); background-position: center center; background-size: cover; position: absolute; height: 100%; width: 100%; object-fit: cover; left: 100%; top: 0%; visibility: hidden;}
+        #ivs-product-2 { background-image: url('images/shoes3.jpg'); background-position: center center; background-size: cover; position: absolute; height: 100%; width: 100%; object-fit: cover; left: 100%; top: 0%; visibility: hidden;}
+        #ivs-product-3 { background-image: url('images/shoes4.jpg'); background-position: center center; background-size: cover; position: absolute; height: 100%; width: 100%; object-fit: cover; left: 100%; top: 0%; visibility: hidden;}
+        #ivs-product-cross { display: block; position: absolute; width: 5%; height: 5%; top: 5%; left: 90%; background: transparent no-repeat center; background-size: 50%; border-radius: 5%/17.8%; border-color: transparent; background-image: url(images/cross.svg); cursor: pointer; visibility: hidden;}         
+        #ivs-product-before { display: block; position: absolute; width: 5%; height: 5%; top: 50%; left: 3%; background: transparent no-repeat center; background-size: 50%; border-radius: 5%/17.8%; border-color: transparent; background-image: url(images/before_arrow.svg); cursor: pointer; visibility: hidden;}
+        #ivs-product-next { display: block; position: absolute; width: 5%; height: 5%; top: 50%; left: 92%; background: transparent no-repeat center; background-size: 50%; border-radius: 5%/17.8%; border-color: transparent; background-image: url(images/next_arrow.svg); cursor: pointer; visibility: hidden;}
+        #ivs-product-explore { transform-origin: 50% 50% 0px; position: absolute; top: 80%; left: 80%; cursor: pointer; visibility: hidden; font-family: Verdana, Helvetica, sans-serif; width: 17%; height: 5%; border-style: solid; border-color: white; border-width: 2px; text-align: center; display: inline-block; border-radius: 40px; background-color: black; color: white; font-size: 2em; }
 
     </style>
+    <script src="https://player.ivideosmart.com/ivshotspots/js/external/richmedia-ivs-integration.js"></script>
   <title>iVS</title>
 </head>
 <body onresize='resize()'>
@@ -85,7 +86,7 @@
 
     <!-- Clickables to redirect to Carousel Page -->
     <div id='ivs-clickables'>
-      <span id='ivs-words-adidas'>ADIDAS Collection<hr></span>
+      <div id='ivs-words-adidas'>ADIDAS Collection<hr></div>
       <p id='ivs-words-explore'>EXPLORE NOW</p>
       <button id='ivs-cross-button'></button>
       <svg id='ivs-carousel-button-background'></svg>
@@ -129,6 +130,7 @@
     
     // Wait for window to finish loading before loading video so that
     window.onload = function() {
+      resize();
       // Notify player to stop the content video as this a full-frame ad.
       onLinearChange(true);
 
@@ -201,7 +203,7 @@
     }
 
     // Direct user to carousel gallery upon clicking
-    document.getElementById('ivs-clickables').addEventListener('click', function() {
+    document.getElementById("ivs-clickables").addEventListener('click', function() {
       document.getElementById('ivs-product-cross').style.visibility = 'visible';
       document.getElementById('ivs-product-before').style.visibility = 'visible';
       document.getElementById('ivs-product-next').style.visibility = 'visible';
@@ -263,10 +265,7 @@
         recurse = myRecursive(currentImageIndex+1, 0);
       }
     })
-
-    window.onresize = resize();
     
   </script>
-  <script src="https://player.ivideosmart.com/ivshotspots/js/external/richmedia-ivs-integration.js"></script>
 </body>
 </html>
